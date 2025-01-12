@@ -1,14 +1,16 @@
 import axios, { AxiosResponse } from 'axios';
 
 // Definisci il tipo per la risposta dei dati che prevedi di ricevere
-export interface ApiResponse {
-  // Definisci qui la struttura dei dati che prevedi di ricevere dalla tua API
+export interface DataToShow {
+  temperature: number
+  humidity: number,
+  deskHeight: number
 }
 
 // Funzione per effettuare una chiamata GET all'API
-export const fetchData = async (): Promise<ApiResponse> => {
+export const fetchData = async (): Promise<DataToShow> => {
   try {
-    const response: AxiosResponse<ApiResponse> = await axios.get<ApiResponse>('https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Decode%20Talker');
+    const response: AxiosResponse<DataToShow> = await axios.get<DataToShow>('http://192.168.25.97/desk-data');
     return response.data;
   } catch (error) {
     console.error('Errore durante la chiamata API: ', error);

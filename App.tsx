@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ApiResponse, fetchData } from './Services/ApiService';
+import { fetchData } from './Services/ApiService';
 
 export default function App() {
-  const [data, setData] = useState<ApiResponse | null>(null);
+  const [data, setData] = useState<any | null>(null);
 
   useEffect(() => {
     fetchData()
